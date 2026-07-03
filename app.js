@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ADVOCATELINK - CORE WEB LOGIC & DATABASE
+   VAKEELNET - CORE WEB LOGIC & DATABASE
    ========================================================================== */
 
 // --- LOCATION HIERARCHY DATA ---
@@ -107,76 +107,7 @@ function formatCurrency(amount, country) {
     return `${symbol}${amount}`;
 }
 
-const DEFAULT_LAWYERS = [
-    {
-        id: "lawyer-1",
-        name: "Sarah Cole, Esq.",
-        email: "scole@chambers.com",
-        password: "password123",
-        country: "United States",
-        state: "New York",
-        city: "New York City",
-        specialty: "Corporate Law",
-        experience: 12,
-        fee: 350,
-        rating: 4.9,
-        reviews: 48,
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
-        bio: "Specializing in corporate restructuring, venture capital finance, and international business contracts. Based in Manhattan.",
-        role: "lawyer"
-    },
-    {
-        id: "lawyer-2",
-        name: "Robert Vance, J.D.",
-        email: "rvance@defense.com",
-        password: "password123",
-        country: "United States",
-        state: "Illinois",
-        city: "Chicago",
-        specialty: "Criminal Defense",
-        experience: 15,
-        fee: 400,
-        rating: 4.8,
-        reviews: 32,
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80",
-        bio: "Dedicated defense advocate representing clients in federal litigation, corporate white-collar crimes, and criminal trial practice.",
-        role: "lawyer"
-    },
-    {
-        id: "lawyer-3",
-        name: "Adv. Harish Salve",
-        email: "hsalve@chambers.in",
-        password: "password123",
-        country: "India",
-        state: "Maharashtra",
-        city: "Mumbai",
-        specialty: "Corporate Law",
-        experience: 22,
-        fee: 5000,
-        rating: 5.0,
-        reviews: 74,
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
-        bio: "Senior Counsel offering high-fidelity representation in constitutional law, commercial arbitration, and corporate litigation in India.",
-        role: "lawyer"
-    },
-    {
-        id: "lawyer-4",
-        name: "Alistair Hamilton, QC",
-        email: "ahamilton@bar.co.uk",
-        password: "password123",
-        country: "United Kingdom",
-        state: "England",
-        city: "London",
-        specialty: "Intellectual Property",
-        experience: 18,
-        fee: 250,
-        rating: 4.9,
-        reviews: 29,
-        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
-        bio: "Specialist in trademark enforcement, copyright disputes, digital licensing contracts, and media litigation before UK High Courts.",
-        role: "lawyer"
-    }
-];
+const DEFAULT_LAWYERS = [];
 
 const DEFAULT_COURTS = [
     {
