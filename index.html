@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VakeelNet | Premium Lawyer & Court Booking Platform</title>
+    <!-- Google Fonts: Inter for UI, Playfair Display for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for professional legal icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" id="nav-logo">
+                <i class="fa-solid fa-scale-balanced logo-icon"></i>
+                <span class="logo-text">Vakeel<span class="gold-text">Net</span></span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active" id="nav-home">Home</a>
+                <a href="#" class="nav-link" id="nav-find-lawyer">Find Lawyers</a>
+                <a href="#" class="nav-link" id="nav-court-booking">Book Courts</a>
+                <a href="#" class="nav-link" id="nav-how-it-works">How It Works</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                
+                <!-- Guest State -->
+                <div class="auth-buttons" id="guest-nav-actions">
+                    <button class="btn btn-outline" id="btn-login-trigger">Sign In</button>
+                    <button class="btn btn-primary" id="btn-register-trigger">Join as Partner</button>
+                </div>
+                
+                <!-- User Logged In State -->
+                <div class="user-menu hidden" id="user-nav-actions">
+                    <div class="user-info-badge" id="user-badge-trigger">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80" alt="User Profile" class="avatar-sm" id="user-nav-avatar">
+                        <div class="user-meta">
+                            <span class="user-name" id="user-nav-name">Client Name</span>
+                            <span class="user-role-badge">Client</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                    </div>
+                    <div class="dropdown-menu hidden" id="user-dropdown">
+                        <a href="#" class="dropdown-item" id="btn-user-dashboard"><i class="fa-solid fa-columns"></i> Dashboard</a>
+                        <a href="#" class="dropdown-item" id="btn-user-bookings"><i class="fa-solid fa-calendar-check"></i> My Bookings</a>
+                        <hr class="dropdown-divider">
+                        <a href="#" class="dropdown-item text-danger" id="btn-user-logout"><i class="fa-solid fa-sign-out-alt"></i> Sign Out</a>
+                    </div>
+                </div>
+
+                <!-- Lawyer Logged In State -->
+                <div class="user-menu hidden" id="lawyer-nav-actions">
+                    <!-- Notification Bell -->
+                    <div class="notification-bell-wrapper">
+                        <button class="notification-bell" id="lawyer-notification-bell" title="View client approaches">
+                            <i class="fa-solid fa-bell"></i>
+                            <span class="notification-badge" id="notification-count">0</span>
+                        </button>
+                        <div class="notification-dropdown hidden" id="notification-dropdown">
+                            <div class="notification-header">
+                                <h4>Client Approaches</h4>
+                                <button class="btn-mark-read" id="btn-mark-all-read">Mark all as read</button>
+                            </div>
+                            <div class="notification-list" id="notification-list">
+                                <p class="notification-empty">No new approaches</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-info-badge" id="lawyer-badge-trigger">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" alt="Lawyer Profile" class="avatar-sm" id="lawyer-nav-avatar">
+                        <div class="user-meta">
+                            <span class="user-name" id="lawyer-nav-name">Lawyer Name</span>
+                            <span class="user-role-badge gold">Counsel</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                    </div>
+                    <div class="dropdown-menu hidden" id="lawyer-dropdown">
+                        <a href="#" class="dropdown-item" id="btn-lawyer-dashboard"><i class="fa-solid fa-gauge-high"></i> Partner Panel</a>
+                        <a href="#" class="dropdown-item" id="btn-lawyer-profile"><i class="fa-solid fa-user-tie"></i> Edit Profile</a>
+                        <a href="#" class="dropdown-item" id="btn-lawyer-notifications"><i class="fa-solid fa-envelope"></i> All Messages</a>
+                        <hr class="dropdown-divider">
+                        <a href="#" class="dropdown-item text-danger" id="btn-lawyer-logout"><i class="fa-solid fa-sign-out-alt"></i> Sign Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN APP CONTAINER -->
+    <main class="main-content">
+        
+        <!-- SECTION 1: HOME VIEW -->
+        <section id="view-home" class="app-view">
+            <!-- Hero Section -->
+            <div class="hero-banner">
+                <div class="hero-overlay"></div>
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <span class="hero-subtitle">PREMIUM LEGAL DIRECTORY & COURT RESERVATIONS</span>
+                        <h1 class="hero-title">Connecting You with <span class="gold-text">Elite Legal Counsel</span> Instantly</h1>
+                        <p class="hero-slogan">AdvocateLink – Where Clients Meet the Right Advocates.</p>
+                        <p class="hero-description">Browse certified attorneys, book immediate consultations based on your location, and reserve legal chambers or virtual arbitration halls in just a few clicks.</p>
+                        
+                        <!-- Main Search/Filter Card (Redesigned) -->
+                        <div class="search-card" id="main-search-card">
+                            <div class="search-card-header">
+                                <i class="fa-solid fa-magnifying-glass-location"></i>
+                                <span>Find Legal Counsel Near You</span>
+                            </div>
+                            <div class="search-fields-row">
+                                <div class="search-field-group">
+                                    <label class="search-field-label">
+                                        <i class="fa-solid fa-flag"></i> Country
+                                    </label>
+                                    <select id="search-country" class="search-select">
+                                        <option value="">Select Country...</option>
+                                    </select>
+                                </div>
+                                <div class="search-field-sep"></div>
+                                <div class="search-field-group">
+                                    <label class="search-field-label">
+                                        <i class="fa-solid fa-map"></i> State / Province
+                                    </label>
+                                    <select id="search-state" class="search-select" disabled>
+                                        <option value="">Select State...</option>
+                                    </select>
+                                </div>
+                                <div class="search-field-sep"></div>
+                                <div class="search-field-group">
+                                    <label class="search-field-label">
+                                        <i class="fa-solid fa-location-dot"></i> City / Region
+                                    </label>
+                                    <select id="search-city" class="search-select" disabled>
+                                        <option value="">Select City...</option>
+                                    </select>
+                                </div>
+                                <div class="search-field-sep"></div>
+                                <div class="search-field-group">
+                                    <label class="search-field-label">
+                                        <i class="fa-solid fa-gavel"></i> Practice Area
+                                    </label>
+                                    <select id="search-specialty" class="search-select">
+                                        <option value="">All Areas</option>
+                                        <option value="Criminal Defense">Criminal Defense</option>
+                                        <option value="Corporate Law">Corporate Law</option>
+                                        <option value="Family Law">Family Law</option>
+                                        <option value="Intellectual Property">Intellectual Property</option>
+                                        <option value="Real Estate">Real Estate Law</option>
+                                        <option value="Labor &amp; Employment">Labor &amp; Employment</option>
+                                    </select>
+                                </div>
+                                <button class="btn-search-main" id="btn-main-search">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <span>Search</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Geolocation Feature -->
+                        <div class="geo-detector">
+                            <button class="btn-geo" id="btn-geo-detect">
+                                <i class="fa-solid fa-location-crosshairs"></i> Suggest nearby lawyers
+                            </button>
+                            <span class="geo-status" id="geo-status"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Grid Section -->
+            <section class="home-features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>The Modern Standard of Legal Booking</h2>
+                        <p>Streamlined access to courtroom reservations and experienced attorneys.</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-magnifying-glass-location"></i></div>
+                            <h3>Location-Based Matches</h3>
+                            <p>Find attorneys in your local jurisdiction who are licensed for your specific regional courts.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <h3>Real-Time Slots</h3>
+                            <p>Book instant face-to-face, virtual, or phone consultations. No endless phone tag.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fa-solid fa-landmark"></i></div>
+                            <h3>Courtroom Reservation</h3>
+                            <p>Book physical arbitration chambers or digital court hearings integrated directly with your legal partner.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Lawyers / Nearby Recommendations -->
+            <section class="featured-lawyers-section">
+                <div class="container">
+                    <div class="section-header-row">
+                        <div>
+                            <h2 id="featured-title">Top Rated Advocates</h2>
+                            <p id="featured-subtitle">Highly accomplished legal minds ready to defend your rights.</p>
+                        </div>
+                        <button class="btn btn-outline btn-sm" id="btn-view-all-lawyers">View All Counsel</button>
+                    </div>
+                    <div class="lawyers-grid" id="featured-lawyers-container">
+                        <!-- Dynamic content loaded via app.js -->
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- SECTION 2: BROWSE LAWYERS VIEW -->
+        <section id="view-browse" class="app-view hidden">
+            <div class="container page-layout">
+                <!-- Sidebar Filters -->
+                <aside class="sidebar-filters">
+                    <div class="filter-card">
+                        <div class="filter-header">
+                            <h3><i class="fa-solid fa-sliders"></i> Filter Counsel</h3>
+                            <button class="btn-clear-filters" id="btn-clear-filters">Reset All</button>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label">Country</label>
+                            <select id="filter-country" class="form-control">
+                                <option value="">All Countries</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label">State / Province</label>
+                            <select id="filter-state" class="form-control" disabled>
+                                <option value="">All States</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label">City / Region</label>
+                            <select id="filter-city" class="form-control" disabled>
+                                <option value="">All Cities</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label">Practice Area</label>
+                            <div class="filter-options-list" id="filter-specialties">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label">Min Experience (Years)</label>
+                            <div class="experience-slider-container">
+                                <input type="range" id="filter-exp-range" min="1" max="25" value="1" class="slider">
+                                <div class="slider-labels">
+                                    <span>1 Yr</span>
+                                    <span id="exp-val">1 Yr</span>
+                                    <span>25+ Yrs</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label class="filter-label" id="filter-max-fee-label">Max Consultation Fee ($/Hr)</label>
+                            <div class="fee-input-container">
+                                <input type="number" id="filter-max-fee" placeholder="e.g. 350" min="50" step="25" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Search Results Area -->
+                <div class="results-container">
+                    <div class="results-header">
+                        <div class="results-count" id="results-count">Showing 0 Lawyers</div>
+                        <div class="results-sorting">
+                            <label>Sort By:</label>
+                            <select id="sort-select" class="form-control-sm">
+                                <option value="rating">Highest Rated</option>
+                                <option value="exp-desc">Experience: High to Low</option>
+                                <option value="fee-asc">Fee: Low to High</option>
+                                <option value="fee-desc">Fee: High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="lawyers-list-view" id="lawyers-results-list">
+                        <!-- Dynamic list of lawyers populated via app.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: COURT BOOKING VIEW -->
+        <section id="view-courts" class="app-view hidden">
+            <div class="container">
+                <div class="page-intro-header text-center">
+                    <span class="gold-text">EXCLUSIVE AMENITY</span>
+                    <h2>Chambers & Courtroom Reservations</h2>
+                    <p>Secure premium physical mediation spaces, private arbitration boardrooms, or certified virtual hearing facilities.</p>
+                </div>
+
+                <div class="court-booking-layout">
+                    <!-- Court Cards -->
+                    <div class="courts-grid" id="courts-container">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <!-- Court Reservation Form Sidebar -->
+                    <div class="court-form-card">
+                        <h3>Reserve Court Facility</h3>
+                        <p class="card-subtitle">Choose a courtroom and secure a booking slot.</p>
+                        
+                        <form id="court-booking-form">
+                            <div class="form-group">
+                                <label for="court-select-id">Select Facility</label>
+                                <select id="court-select-id" class="form-control" required>
+                                    <option value="">-- Select Room --</option>
+                                    <!-- Dynamic -->
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="court-booking-date">Date</label>
+                                    <input type="date" id="court-booking-date" class="form-control" required>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="court-booking-slot">Time Slot</label>
+                                    <select id="court-booking-slot" class="form-control" required>
+                                        <option value="">-- Choose Slot --</option>
+                                        <option value="09:00 - 12:00">09:00 AM - 12:00 PM (Morning)</option>
+                                        <option value="13:00 - 16:00">01:00 PM - 04:00 PM (Afternoon)</option>
+                                        <option value="17:00 - 20:00">05:00 PM - 08:00 PM (Evening)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="court-booking-lawyer">Associated Counsel (Optional)</label>
+                                <select id="court-booking-lawyer" class="form-control">
+                                    <option value="">No lawyer assigned (Room reservation only)</option>
+                                    <!-- Dynamic list of user's lawyers or all lawyers -->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="court-booking-purpose">Case Title / Purpose</label>
+                                <input type="text" id="court-booking-purpose" class="form-control" placeholder="e.g. Arbitration: Miller vs Johnson" required>
+                            </div>
+
+                            <div class="pricing-summary hidden" id="court-pricing-summary">
+                                <div class="summary-row">
+                                    <span>Hourly Rate:</span>
+                                    <span id="summary-court-rate">$0</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Duration:</span>
+                                    <span>3 Hours</span>
+                                </div>
+                                <hr>
+                                <div class="summary-row total">
+                                    <span>Total Price:</span>
+                                    <span id="summary-court-total">$0</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="btn-book-court-submit">Confirm Court Booking</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: CLIENT DASHBOARD VIEW -->
+        <section id="view-client-dashboard" class="app-view hidden">
+            <div class="container dashboard-layout">
+                <!-- Sidebar Info -->
+                <div class="dashboard-sidebar">
+                    <div class="profile-card text-center">
+                        <div class="avatar-upload-container">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80" alt="Client" class="avatar-lg" id="client-dash-avatar">
+                        </div>
+                        <h3 id="client-dash-name">Client Name</h3>
+                        <p class="client-dash-email text-muted" id="client-dash-email">client@example.com</p>
+                        <span class="user-role-badge">Client Portal</span>
+                    </div>
+
+                    <div class="dash-quick-stats">
+                        <div class="stat-box">
+                            <span class="stat-num" id="client-stat-bookings">0</span>
+                            <span class="stat-label">Appointments</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num" id="client-stat-courts">0</span>
+                            <span class="stat-label">Courts Booked</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Dashboard Content -->
+                <div class="dashboard-main-content">
+                    <div class="dashboard-tabs">
+                        <button class="dash-tab active" data-target="tab-client-appointments">Lawyer Consultations</button>
+                        <button class="dash-tab" data-target="tab-client-courts">Courtroom Reservations</button>
+                    </div>
+
+                    <div id="tab-client-appointments" class="dash-tab-content">
+                        <div class="card-header-row">
+                            <h3>Active Legal Consultations</h3>
+                            <button class="btn btn-sm btn-primary" id="btn-find-lawyers-shortcut"><i class="fa-solid fa-plus"></i> Find Lawyers</button>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Lawyer</th>
+                                        <th>Location</th>
+                                        <th>Specialty</th>
+                                        <th>Date & Time</th>
+                                        <th>Assigned Court</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="client-appointments-list">
+                                    <!-- Dynamic -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="tab-client-courts" class="dash-tab-content hidden">
+                        <div class="card-header-row">
+                            <h3>Courtroom & Mediation Space Bookings</h3>
+                            <button class="btn btn-sm btn-primary" id="btn-find-courts-shortcut"><i class="fa-solid fa-plus"></i> Reserve Room</button>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Facility</th>
+                                        <th>Type</th>
+                                        <th>Date & Time</th>
+                                        <th>Case Title</th>
+                                        <th>Rate</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="client-courts-list">
+                                    <!-- Dynamic -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: LAWYER PARTNER PANEL VIEW -->
+        <section id="view-lawyer-dashboard" class="app-view hidden">
+            <div class="container dashboard-layout">
+                <!-- Sidebar Info & Edit Profile -->
+                <div class="dashboard-sidebar">
+                    <div class="profile-card text-center" id="lawyer-view-card">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Lawyer" class="avatar-lg" id="lawyer-dash-avatar">
+                        <h3 id="lawyer-dash-name">Advocate Name</h3>
+                        <p class="lawyer-dash-specialization gold-text" id="lawyer-dash-specialty">Corporate Law</p>
+                        <p class="lawyer-dash-city text-muted"><i class="fa-solid fa-location-dot"></i> <span id="lawyer-dash-city">New York</span></p>
+                        <div class="rating-badge"><i class="fa-solid fa-star"></i> <span id="lawyer-dash-rating">4.9</span></div>
+                    </div>
+
+                    <div class="dash-quick-stats">
+                        <div class="stat-box">
+                            <span class="stat-num" id="lawyer-stat-appointments">0</span>
+                            <span class="stat-label">Total Cases</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-num" id="lawyer-stat-revenue">$0</span>
+                            <span class="stat-label">Earnings</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Dashboard Content -->
+                <div class="dashboard-main-content">
+                    <div class="dashboard-tabs">
+                        <button class="dash-tab active" data-target="tab-lawyer-appointments">Client Consultation Requests</button>
+                        <button class="dash-tab" data-target="tab-lawyer-settings">Update Partner Profile</button>
+                    </div>
+
+                    <div id="tab-lawyer-appointments" class="dash-tab-content">
+                        <h3>Client Appointments</h3>
+                        <div class="table-responsive">
+                            <table class="dash-table">
+                                <thead>
+                                    <tr>
+                                        <th>Client</th>
+                                        <th>Date</th>
+                                        <th>Time Slot</th>
+                                        <th>Court Allocated</th>
+                                        <th>Case/Purpose</th>
+                                        <th>Consultation Fee</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="lawyer-appointments-list">
+                                    <!-- Dynamic -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="tab-lawyer-settings" class="dash-tab-content hidden">
+                        <h3>Edit Professional Details</h3>
+                        <p class="section-desc">Manage your public listing card, experience metrics, fees, and location details.</p>
+                        
+                        <form id="lawyer-profile-form" class="dashboard-form">
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="lawyer-edit-name">Full Name</label>
+                                    <input type="text" id="lawyer-edit-name" class="form-control" required>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="lawyer-edit-specialty">Specialization</label>
+                                    <select id="lawyer-edit-specialty" class="form-control" required>
+                                        <option value="Criminal Defense">Criminal Defense</option>
+                                        <option value="Corporate Law">Corporate & Business Law</option>
+                                        <option value="Family Law">Family & Divorce Law</option>
+                                        <option value="Intellectual Property">Intellectual Property</option>
+                                        <option value="Real Estate">Real Estate Law</option>
+                                        <option value="Labor & Employment">Labor & Employment</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="lawyer-edit-country">Country</label>
+                                    <select id="lawyer-edit-country" class="form-control" required>
+                                        <option value="">Select Country...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="lawyer-edit-state">State</label>
+                                    <select id="lawyer-edit-state" class="form-control" required disabled>
+                                        <option value="">Select State...</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="lawyer-edit-city">City / Practice Region</label>
+                                    <select id="lawyer-edit-city" class="form-control" required disabled>
+                                        <option value="">Select City...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col">
+                                     <label for="lawyer-edit-fee" id="lawyer-edit-fee-label">Hourly Consultation Fee ($)</label>
+                                     <input type="number" id="lawyer-edit-fee" class="form-control" min="50" step="10" required>
+                                 </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="lawyer-edit-exp">Work Experience (Years)</label>
+                                    <input type="number" id="lawyer-edit-exp" class="form-control" min="1" max="50" required>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="lawyer-edit-image">Profile Image URL</label>
+                                    <input type="text" id="lawyer-edit-image" class="form-control" placeholder="https://images.unsplash.com/...">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lawyer-edit-bio">Professional Biography</label>
+                                <textarea id="lawyer-edit-bio" class="form-control" rows="4" placeholder="Briefly describe your case history, education, and legal achievements..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="btn-save-lawyer-profile">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- AUTHENTICATION MODAL -->
+    <div class="modal hidden" id="modal-auth">
+        <div class="modal-overlay" id="auth-modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="btn-close-auth"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" data-tab="tab-login">Sign In</button>
+                <button class="auth-tab-btn" data-tab="tab-register">Register</button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <div class="auth-content active" id="tab-login">
+                <h3 class="auth-title">Welcome Back</h3>
+                <p class="auth-subtitle">Access your JurisBook account and active litigation requests.</p>
+                
+                <div class="role-selector-container">
+                    <label>Sign in as:</label>
+                    <div class="role-selector">
+                        <input type="radio" id="login-role-client" name="login-role" value="client" checked>
+                        <label for="login-role-client" class="role-label"><i class="fa-solid fa-user"></i> Client</label>
+                        
+                        <input type="radio" id="login-role-lawyer" name="login-role" value="lawyer">
+                        <label for="login-role-lawyer" class="role-label"><i class="fa-solid fa-gavel"></i> Counsel</label>
+                    </div>
+                </div>
+
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="login-email" class="form-control" placeholder="e.g. advocate@firm.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-solid fa-lock input-icon"></i>
+                            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </form>
+            </div>
+
+            <!-- REGISTER FORM -->
+            <div class="auth-content" id="tab-register">
+                <h3 class="auth-title">Create Account</h3>
+                <p class="auth-subtitle">Join the elite network or find the advocate you deserve.</p>
+
+                <div class="role-selector-container">
+                    <label>Account Type:</label>
+                    <div class="role-selector">
+                        <input type="radio" id="reg-role-client" name="reg-role" value="client" checked>
+                        <label for="reg-role-client" class="role-label"><i class="fa-solid fa-user"></i> Client</label>
+                        
+                        <input type="radio" id="reg-role-lawyer" name="reg-role" value="lawyer">
+                        <label for="reg-role-lawyer" class="role-label"><i class="fa-solid fa-gavel"></i> Counsel</label>
+                    </div>
+                </div>
+
+                <!-- Client Registration Form -->
+                <form id="register-client-form">
+                    <div class="form-group">
+                        <label for="reg-client-name">Full Name</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-solid fa-user input-icon"></i>
+                            <input type="text" id="reg-client-name" class="form-control" placeholder="e.g. John Miller" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-client-email">Email Address</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="reg-client-email" class="form-control" placeholder="john.miller@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-client-password">Password</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-solid fa-lock input-icon"></i>
+                            <input type="password" id="reg-client-password" class="form-control" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Create Client Account</button>
+                </form>
+
+                <!-- Lawyer Registration Form (Shown only if Lawyer Role is selected) -->
+                <form id="register-lawyer-form" class="hidden">
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="reg-lawyer-name">Full Name</label>
+                            <input type="text" id="reg-lawyer-name" class="form-control" placeholder="Adv. Sarah Cole" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="reg-lawyer-specialty">Practice Area</label>
+                            <select id="reg-lawyer-specialty" class="form-control" required>
+                                <option value="Criminal Defense">Criminal Defense</option>
+                                <option value="Corporate Law">Corporate & Business Law</option>
+                                <option value="Family Law">Family & Divorce Law</option>
+                                <option value="Intellectual Property">Intellectual Property</option>
+                                <option value="Real Estate">Real Estate Law</option>
+                                <option value="Labor & Employment">Labor & Employment</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="reg-lawyer-country">Country</label>
+                            <select id="reg-lawyer-country" class="form-control" required>
+                                <option value="">Select Country...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col">
+                            <label for="reg-lawyer-state">State</label>
+                            <select id="reg-lawyer-state" class="form-control" required disabled>
+                                <option value="">Select State...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="reg-lawyer-city">City / Region</label>
+                            <select id="reg-lawyer-city" class="form-control" required disabled>
+                                <option value="">Select City...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col">
+                            <label for="reg-lawyer-fee" id="reg-lawyer-fee-label">Hourly Consultation Fee ($)</label>
+                            <input type="number" id="reg-lawyer-fee" class="form-control" min="50" placeholder="250" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="reg-lawyer-exp">Years of Experience</label>
+                            <input type="number" id="reg-lawyer-exp" class="form-control" min="1" placeholder="8" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="reg-lawyer-email">Email Address</label>
+                            <input type="email" id="reg-lawyer-email" class="form-control" placeholder="scole@chambers.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-lawyer-password">Password</label>
+                        <input type="password" id="reg-lawyer-password" class="form-control" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Register Professional Practice</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOKING APPOINTMENT MODAL -->
+    <div class="modal hidden" id="modal-booking">
+        <div class="modal-overlay" id="booking-modal-overlay"></div>
+        <div class="modal-container lawyer-booking-modal">
+            <button class="modal-close" id="btn-close-booking"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="lawyer-profile-summary">
+                <img src="" alt="Lawyer Profile" class="avatar-lg" id="book-modal-avatar">
+                <div class="lawyer-summary-details">
+                    <h3 id="book-modal-name">Advocate Name</h3>
+                    <p class="gold-text" id="book-modal-specialty">Criminal Defense</p>
+                    <p class="text-muted"><i class="fa-solid fa-location-dot"></i> <span id="book-modal-city">New York</span></p>
+                    <div class="lawyer-modal-badges">
+                        <span class="badge"><i class="fa-solid fa-briefcase"></i> <span id="book-modal-exp">0</span> Years Exp</span>
+                        <span class="badge"><i class="fa-solid fa-dollar-sign"></i> <span id="book-modal-fee">0</span> / Hr</span>
+                        <span class="badge"><i class="fa-solid fa-star"></i> <span id="book-modal-rating">0</span> Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-divider"></div>
+
+            <form id="appointment-booking-form">
+                <h4 class="form-section-title">Schedule Case Consultation</h4>
+                
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label for="appointment-date">Select Date</label>
+                        <input type="date" id="appointment-date" class="form-control" required>
+                    </div>
+                    <div class="form-group col">
+                        <label for="appointment-time">Available Hours</label>
+                        <select id="appointment-time" class="form-control" required>
+                            <option value="">-- Select Time Slot --</option>
+                            <option value="09:00 AM">09:00 AM</option>
+                            <option value="10:30 AM">10:30 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="02:00 PM">02:00 PM</option>
+                            <option value="03:30 PM">03:30 PM</option>
+                            <option value="04:00 PM">04:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Integrated Court Booking Optional Checkbox -->
+                <div class="court-integration-card">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="appointment-include-court">
+                        <label for="appointment-include-court">
+                            <strong>Reserve Court / Arbitration Room</strong>
+                            <p class="text-muted">Conduct your lawyer consultation in a premium local hearing room.</p>
+                        </label>
+                    </div>
+                    
+                    <div class="court-subform hidden" id="court-subform-fields">
+                        <div class="form-group">
+                            <label for="appointment-court-id">Available Chambers</label>
+                            <select id="appointment-court-id" class="form-control">
+                                <option value="">-- Choose Chamber --</option>
+                                <!-- Dynamic -->
+                            </select>
+                        </div>
+                        <div class="court-subform-meta">
+                            <span>Room rate details will be added to the overall fees.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="appointment-notes">Brief Case Overview</label>
+                    <textarea id="appointment-notes" class="form-control" rows="3" placeholder="Describe the legal issues or case type so your advocate can prepare..." required></textarea>
+                </div>
+
+                <div class="pricing-summary" id="appointment-pricing-summary">
+                    <div class="summary-row">
+                        <span>Counsel Consultation Fee:</span>
+                        <span id="summary-lawyer-fee">$0</span>
+                    </div>
+                    <div class="summary-row hidden" id="summary-court-addon-row">
+                        <span>Courtroom Reservation Add-on:</span>
+                        <span id="summary-court-addon-fee">$0</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row total">
+                        <span>Estimated Total:</span>
+                        <span id="summary-total-fee">$0</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Confirm Appointment Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- BOOKING SUCCESS MODAL -->
+    <div class="modal hidden" id="modal-success">
+        <div class="modal-overlay" id="success-modal-overlay"></div>
+        <div class="modal-container success-modal text-center">
+            <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <h2>Booking Confirmed!</h2>
+            <p class="modal-subtitle">Your appointment slot has been successfully registered in the JurisBook database.</p>
+            
+            <div class="receipt-card">
+                <div class="receipt-row">
+                    <span>Reference Code:</span>
+                    <strong id="receipt-ref">JB-998822</strong>
+                </div>
+                <div class="receipt-row">
+                    <span>Counsel:</span>
+                    <span id="receipt-lawyer">Sarah Cole, Esq.</span>
+                </div>
+                <div class="receipt-row">
+                    <span>Date & Time:</span>
+                    <span id="receipt-datetime">June 12, 2026 at 10:30 AM</span>
+                </div>
+                <div class="receipt-row" id="receipt-court-row">
+                    <span>Court Facility:</span>
+                    <span id="receipt-court">Arbitration Suite Alpha</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" id="btn-success-close">Go to Dashboard</button>
+        </div>
+    </div>
+    
+    <!-- COMMUNICATION HUB (CHAT & CALL) MODAL -->
+    <div class="modal hidden" id="modal-chat-call">
+        <div class="modal-overlay" id="chat-modal-overlay"></div>
+        <div class="modal-container chat-call-container">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="chat-recipient-info">
+                    <img src="" alt="Recipient Avatar" class="avatar-sm" id="chat-recipient-avatar">
+                    <div class="chat-recipient-meta">
+                        <span class="chat-recipient-name" id="chat-recipient-name">Recipient Name</span>
+                        <span class="chat-recipient-status" id="chat-recipient-status"><span class="status-dot online"></span> Online</span>
+                    </div>
+                </div>
+                <div class="chat-header-actions">
+                    <button class="btn-chat-action" id="btn-voice-call" title="Start Voice Call">
+                        <i class="fa-solid fa-phone"></i>
+                    </button>
+                    <button class="btn-chat-action" id="btn-video-call" title="Start Video Call">
+                        <i class="fa-solid fa-video"></i>
+                    </button>
+                    <button class="modal-close-chat" id="btn-close-chat"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+            
+            <!-- Main Chat Body -->
+            <div class="chat-body" id="chat-body-content">
+                <!-- Messages List -->
+                <div class="chat-messages" id="chat-messages-list">
+                    <!-- Messages populated dynamically -->
+                </div>
+                
+                <!-- Bottom Input Bar -->
+                <div class="chat-input-bar">
+                    <button class="btn-chat-attach" id="btn-chat-attach-trigger" title="Attach Document (Max 2MB)">
+                        <i class="fa-solid fa-paperclip"></i>
+                    </button>
+                    <input type="file" id="chat-file-input" class="hidden" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.txt">
+                    <input type="text" id="chat-message-input" placeholder="Type a message or upload document..." autocomplete="off">
+                    <button class="btn-chat-send" id="btn-chat-send" title="Send Message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Calling Overlay (hidden by default) -->
+            <div class="calling-overlay hidden" id="calling-overlay">
+                <div class="calling-container">
+                    <div class="calling-avatar-wrapper">
+                        <img src="" alt="Call Avatar" class="calling-avatar" id="calling-avatar">
+                        <div class="calling-pulse" id="calling-pulse"></div>
+                    </div>
+                    <h3 class="calling-name" id="calling-name">Advocate Name</h3>
+                    <p class="calling-status" id="calling-status">Ringing...</p>
+                    <span class="calling-timer hidden" id="calling-timer">00:00</span>
+                    
+                    <!-- Pure CSS voice wave visualization -->
+                    <div class="voice-wave hidden" id="voice-wave">
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                    </div>
+                    
+                    <!-- Video Call Feed Wrapper -->
+                    <div class="video-feed-wrapper hidden" id="video-feed-wrapper">
+                        <div class="remote-video-placeholder">
+                            <img src="" alt="Remote" class="remote-video-avatar" id="remote-video-avatar">
+                            <div class="remote-video-status">Video Connection Active</div>
+                        </div>
+                        <video id="local-video" class="local-video-feed" autoplay muted playsinline></video>
+                    </div>
+                    
+                    <!-- Call Action Buttons -->
+                    <div class="calling-actions">
+                        <button class="btn-call-action toggle" id="btn-call-mute" title="Mute Microphone">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                        <button class="btn-call-action toggle hidden" id="btn-call-video" title="Toggle Camera">
+                            <i class="fa-solid fa-video"></i>
+                        </button>
+                        <button class="btn-call-action end" id="btn-call-end" title="End Call">
+                            <i class="fa-solid fa-phone-slash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dedication Bar -->
+    <div class="dedication-bar">
+        <div class="dedication-bar-inner">
+            <i class="fa-solid fa-heart dedication-heart"></i>
+            <span class="dedication-text">Built with dedication by <strong>Labh Upadhyay</strong>, helping you find the right legal support when it matters most.</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-scale-balanced logo-icon"></i>
+                    <span class="logo-text">ADVOCATE<span class="gold-text">LINK</span></span>
+                </a>
+                <p>AdvocateLink – Where Clients Meet the Right Advocates. Delivering high-fidelity connection, real-time schedule alignment, and premium litigation reservations for client-firm success.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Legal Finder</h4>
+                <a href="#" class="nav-find-lawyer-footer">All Attorneys</a>
+                <a href="#" class="nav-court-booking-footer">Court Venues</a>
+                <a href="#">Regional Search</a>
+            </div>
+            <div class="footer-links">
+                <h4>Support & Policy</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Attorney Compliance</a>
+                <a href="#">Arbitration Terms</a>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <p>Receive newsletters about legal compliance and case studies.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="email@example.com" class="form-control">
+                    <button class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 AdvocateLink. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
